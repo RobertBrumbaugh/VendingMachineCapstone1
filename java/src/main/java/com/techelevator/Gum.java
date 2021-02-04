@@ -9,6 +9,7 @@ public class Gum extends PurchasableItems {
 	public String getSound() {
 		return "Chew Chew, Yum!";
 	}
+	
 
 
 }

@@ -7,7 +7,9 @@ public class Drinks extends PurchasableItems {
 	}
 	
 	public String getSound() {
-		return "Glug Glug, Yum!";
+		return "Gulp Gulp, Yum!";
 	}
+	
+
 
 }
