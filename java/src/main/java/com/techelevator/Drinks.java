@@ -2,8 +2,8 @@ package com.techelevator;
 
 public class Drinks extends PurchasableItems {
 
-	public Drinks(String name, String price) {
-		super(name, price);
+	public Drinks(String idNum, String name, String price, String type) {
+		super(idNum, name, price, type);
 	}
 	
 	

@@ -2,8 +2,8 @@ package com.techelevator;
 
 public class Chips extends PurchasableItems {
 
-	public Chips(String name, String price) {
-		super(name, price);
+	public Chips(String idNum, String name, String price, String type) {
+		super(idNum, name, price, type);
 	}
 	
 	@Override

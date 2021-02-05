@@ -48,8 +48,8 @@ public class Inventory {
 	public void distributeProductAmount() {
 		
 		if (stockAmount > 0) {
-			stockAmount++;
-			dispenseAmount--;
+			stockAmount--;
+			dispenseAmount++;
 			
 		} else if (stockAmount == 0) {
 			System.out.println("Sorry, item is SOLD OUT!");
@@ -61,8 +61,6 @@ public class Inventory {
 	public List<PurchasableItems> loadItems() throws FileNotFoundException {
 		
 		Scanner getFileToDisplay = new Scanner("vendingmachine.csv");
-		//System.out.println("Enter path: ");
-		//String path = "vendingmachine.csv";
 		String path = "vendingmachine.csv";
 		File inputFile = new File(path);
 
@@ -74,10 +72,16 @@ public class Inventory {
 				
 				switch(itemAttributes[3]) {
 				case "Chip":
-					purchasableItems.add(new Chips(itemAttributes[1],itemAttributes[2]));
+					purchasableItems.add(new Chips(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3]));
+					break;
+				case "Candy":
+					purchasableItems.add(new Candy(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3]));
 					break;
 				case "Drink":
-					purchasableItems.add(new Drinks(itemAttributes[1],itemAttributes[2]));
+					purchasableItems.add(new Drinks(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3]));
+					break;
+				case "Gum":
+					purchasableItems.add(new Gum(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3]));
 					break;
 				default:
 					break;
@@ -91,46 +95,5 @@ public class Inventory {
 		return purchasableItems;
 		
 	}
-
-	
-
-
-
-	
-	/**********************************************************/
-	// TODO: This should be a class, not an application. i.e. no static void main
-	/**********************************************************/
-//	public static void main(String []args) throws IOException {
-//
-//		Scanner getFileToDisplay = new Scanner("vendingmachine.csv");
-//		//System.out.println("Enter path: ");
-//		//String path = "vendingmachine.csv";
-//		String path = getFileToDisplay.nextLine();
-//		File inputFile = new File(path);
-//
-//		try( Scanner fileToBeRead = new Scanner(inputFile)) {
-//			while(fileToBeRead.hasNext()) {
-//				String lineInput = fileToBeRead.nextLine();
-//				String[] wordsOnLine = lineInput.split("\\|" + "\\|" + "\\|");
-//
-//				for(String line : wordsOnLine) {
-//					System.out.println(line + "| " + stockAmount);
-//				}
-//
-//
-//				//
-//				//		public boolean isNotSoldOut() {
-//				//			if(this.maxNumberOfItems >= 1) {
-//				//				return true;
-//				//			}
-//				//			return false;
-//				//		}
-//				//
-//				//		public void purchaseItemInstance() {
-//				//			maxNumberOfItems -= 1;
-//				//		}
-//			}
-//		}
-//		
 	}
 

@@ -4,13 +4,18 @@ public abstract class PurchasableItems {
 
 	private String name;
 	private String price;
-	//private int maxNumberOfItems = 5;
+	private String type;
+	private String idNum;
 
 	//TODO: Full Constructor needed
-	public PurchasableItems(String name, String price) {
+	
+	
+	public PurchasableItems(String idNum, String name, String price, String type) {
 
 		this.name = name;
 		this.price = price;
+		this.type = type;
+		this.idNum = idNum; 
 
 	}
 
@@ -21,6 +26,14 @@ public abstract class PurchasableItems {
 	public String getPriceString() {
 		return price;
 	}
+	
+	public String getidNum() {
+		return idNum;
+	}
+	
+	public String getType(){
+		return type;
+	}
 
 	/*
 	 * public int getMaxNumberOfItems() { return maxNumberOfItems; }
@@ -28,12 +41,11 @@ public abstract class PurchasableItems {
 
 	public abstract String getSound();
 	
-	//TODO: Implement a .toString override to make these printable in a nice user friendly way
 	
 	@Override
 	public String toString() {
 		String result;
-		result = this.name + " " + this.price;
+		result = this.idNum + ") " + this.name + " -- $" + this.price;
 		return result;
 	}
 

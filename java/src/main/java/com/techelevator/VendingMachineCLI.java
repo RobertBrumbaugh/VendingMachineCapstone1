@@ -47,10 +47,10 @@ public class VendingMachineCLI {
 
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
-				System.out.println("Display Here");
-				// display vending machine items
-				// TODO: Implement output of items from inventory
-								
+				System.out.println("-----| Vendo-Matic's Premium Products |-----");
+			
+				//Implement output of items from inventory
+			
 				for(PurchasableItems item : vendingItems)
 				{
 					System.out.println(item.toString());
@@ -58,7 +58,10 @@ public class VendingMachineCLI {
 				
 				
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
+				
+				
 				if(choice.equals(MAIN_MENU_OPTION_FEEDING_MONEY)) {
+					System.out.println("Insert $:  Accepts $10, $5, $1 ");
 
 				} else if (choice.equals(MAIN_MENU_OPTION_SELECT_PRODUCT)) {
 
@@ -67,9 +70,9 @@ public class VendingMachineCLI {
 				}
 				// do purchase
 			} else if(choice.equals(MAIN_MENU_OPTION_EXIT)) {
-				System.out.println("Thank you, good bye!");
+				System.out.println("Thank you, goodbye!");
 				System.exit(1);
-				// exit
+	
 			}
 		}
 	}

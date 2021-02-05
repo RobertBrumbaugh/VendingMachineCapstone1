@@ -2,8 +2,8 @@ package com.techelevator;
 
 public class Gum extends PurchasableItems {
 
-	public Gum(String name, String price) {
-		super(name, price);
+	public Gum(String idNum, String name, String price, String type) {
+		super(idNum, name, price, type);
 	}
 	
 	

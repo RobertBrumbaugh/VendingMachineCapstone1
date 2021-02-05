@@ -20,9 +20,9 @@
 			balance = balance + (amountDeposited * 100);
 		}
 	
-		public void withdrawMoneyConvertedToPennies ( int amountWithdrawn) {
-			balance = balance + amountWithdrawn;
-		}
+	//	public void withdrawMoneyConvertedToPennies ( int amountWithdrawn) {
+	//		balance = balance + amountWithdrawn;
+	//	}
 	
 		public String convertToCoins( int balance) {
 			
