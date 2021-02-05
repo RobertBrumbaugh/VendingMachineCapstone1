@@ -10,37 +10,20 @@ public class Inventory {
 	// Needs to stock vending machine at startup 
 	// Sold out or not 
 	// 
-public static void main(String []args) {
+	public static void main(String []args) {
 
-	try( Scanner fileToBeRead = new Scanner("vendingmachine.csv")) {
-		while(fileToBeRead.hasNext()) {
-			String lineInput = fileToBeRead.nextLine();
-			String[] wordsOnLine = lineInput.split("\\|" + "\\|" + "\\|");
-			
-			for(String word : wordsOnLine) {
-				System.out.println(word);
-			}
-
-		}
-	}
-
-}
-}
-
-
-
-
-
-
-
-//	public boolean isNotSoldOut() {
-//		if(this.maxNumberOfItems >= 1) {
-//			return true;
+		
+//
+//		public boolean isNotSoldOut() {
+//			if(this.maxNumberOfItems >= 1) {
+//				return true;
+//			}
+//			return false;
 //		}
-//		return false;
-//	}
-//	
-//	public void purchaseItemInstance() {
-//		maxNumberOfItems -= 1;
-//	}
+//
+//		public void purchaseItemInstance() {
+//			maxNumberOfItems -= 1;
+//		}
+	}
+}
 

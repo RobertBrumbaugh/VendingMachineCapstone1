@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.Scanner;
+
 import com.techelevator.view.Menu;
 
 public class VendingMachineCLI {
@@ -30,6 +32,24 @@ public class VendingMachineCLI {
 		Menu menu = new Menu(System.in, System.out);
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
 		cli.run();
+
+
+
+		try( Scanner fileToBeRead = new Scanner("/vendingmachine.csv")) {
+			while(fileToBeRead.hasNext()) {
+				String lineInput = fileToBeRead.nextLine();
+				String[] wordsOnLine = lineInput.split("\\|" + "\\|" + "\\|");
+
+				for(String line : wordsOnLine) {
+					System.out.println(line);
+				}
+
+			}
+
+
+		}
 	}
-	
+
+
+
 }
