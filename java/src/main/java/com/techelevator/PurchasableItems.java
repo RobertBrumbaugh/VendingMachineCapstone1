@@ -28,23 +28,3 @@ public abstract class PurchasableItems {
 	public abstract String getSound();
 
 }
-
-	//	public Integer getPriceIntegerToPennies() {
-	//		getPriceIntegerToPennies();
-	//		return Integer.parseInt(price);
-	//	}
-
-	// Could be in inventory??
-//	public boolean isNotSoldOut() {
-//		if(this.maxNumberOfItems >= 1) {
-//			return true;
-//		}
-//		return false;
-//	}
-//	
-//	public void purchaseItemInstance() {
-//		maxNumberOfItems -= 1;
-//	}
-
-
-
