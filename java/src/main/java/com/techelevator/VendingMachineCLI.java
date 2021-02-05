@@ -1,6 +1,9 @@
 package com.techelevator;
 
-import java.util.Scanner;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+
 //import com.techelevator.Inventory;
 import com.techelevator.view.Menu;
 
@@ -18,18 +21,27 @@ public class VendingMachineCLI {
 			MAIN_MENU_OPTION_FINISH_TRANSACTION};
 
 	private Menu menu;
+	
+	private List<PurchasableItems> vendingItems = new ArrayList<>();
 
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
 	}
 
-	private Inventory inventory;
+	private Inventory inventory = new Inventory();
 
-	public VendingMachineCLI(Inventory inventory) {
-		//this.inventory = new Inventory();
+	public VendingMachineCLI() {
+
 	}
 
 	public void run() {
+		
+		try {
+			vendingItems = inventory.loadItems();
+		} catch (FileNotFoundException e) {
+			System.out.println("Unable to find inventory file");
+		}
+		
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
@@ -37,6 +49,14 @@ public class VendingMachineCLI {
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				System.out.println("Display Here");
 				// display vending machine items
+				// TODO: Implement output of items from inventory
+								
+				for(PurchasableItems item : vendingItems)
+				{
+					System.out.println(item.toString());
+				}
+				
+				
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				if(choice.equals(MAIN_MENU_OPTION_FEEDING_MONEY)) {
 
