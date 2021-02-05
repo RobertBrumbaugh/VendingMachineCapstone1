@@ -6,6 +6,7 @@ public class Candy extends PurchasableItems {
 		super(name, price);
 	}
 	
+	@Override
 	public String getSound() {
 		return "Munch Munch, Yum!";
 	}

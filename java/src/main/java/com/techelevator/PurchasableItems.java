@@ -4,7 +4,7 @@ public abstract class PurchasableItems {
 
 	private String name;
 	private String price;
-	private int maxNumberOfItems = 5;
+	//private int maxNumberOfItems = 5;
 
 	public PurchasableItems(String name, String price) {
 
@@ -21,9 +21,9 @@ public abstract class PurchasableItems {
 		return price;
 	}
 
-	public int getMaxNumberOfItems() {
-		return maxNumberOfItems;
-	}
+	/*
+	 * public int getMaxNumberOfItems() { return maxNumberOfItems; }
+	 */
 
 	public abstract String getSound();
 

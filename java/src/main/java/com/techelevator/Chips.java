@@ -6,6 +6,7 @@ public class Chips extends PurchasableItems {
 		super(name, price);
 	}
 	
+	@Override
 	public String getSound() {
 		return "Crunch Crunch, Yum!";
 	}

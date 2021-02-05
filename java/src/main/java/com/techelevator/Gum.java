@@ -6,6 +6,8 @@ public class Gum extends PurchasableItems {
 		super(name, price);
 	}
 	
+	
+	@Override
 	public String getSound() {
 		return "Chew Chew, Yum!";
 	}
