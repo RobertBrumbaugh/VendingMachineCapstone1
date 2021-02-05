@@ -1,6 +1,10 @@
 	package com.techelevator;
-	
-	public class MoneyHolder {
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class MoneyHolder {
 	
 		// need a balance ==> converts to pennies
 		// needs to add money (deposit - user's current balance)
@@ -16,8 +20,16 @@
 			balance = 0;
 		}
 	
-		public void depositMoneyConvertedToPennies ( int amountDeposited) {
-			balance = balance + (amountDeposited * 100);
+		public void depositedMoneyConvertedToPennies (int amountDeposited) {
+			
+			Set<Integer> validEntry = new HashSet<Integer>(Arrays.asList(new Integer[] {1, 2, 5, 10}));
+			
+			if(validEntry.contains(amountDeposited)) {
+			balance = balance + amountDeposited;
+			} else {
+				System.out.println("Invalid entry: Please enter 1, 2, 5, or 10");
+			}
+			return;
 		}
 	
 	//	public void withdrawMoneyConvertedToPennies ( int amountWithdrawn) {
