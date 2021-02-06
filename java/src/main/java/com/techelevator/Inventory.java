@@ -99,17 +99,17 @@ public class Inventory {
 		return purchasableItems;
 		
 	}
-	public void vendingMachineSelection (String selection) {
-		
-		Set<String> snack = new HashSet<String>(Arrays.asList());
-		
-		if(snack.contains(selection)) {
-			//return selection;
-		} else {
-			System.out.println("Invalid entry: Please enter a valid slot entry");
-		}
-		return;
-	}
+//	public void vendingMachineSelection (String selection) {
+//		
+//		Set<String> snack = new HashSet<String>(Arrays.asList());
+//		
+//		if(snack.contains(selection)) {
+//			//return selection;
+//		} else {
+//			System.out.println("Invalid entry: Please enter a valid slot entry");
+//		}
+//		return;
+//	}
 	
 	}
 

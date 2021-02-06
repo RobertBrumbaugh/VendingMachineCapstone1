@@ -42,7 +42,7 @@ public class Menu {
 	}
 
 	public String getItemChoice() {
-		System.out.println("Please input an item code: ");
+		System.out.println("\nPlease input an item code: ");
 		return in.nextLine().toUpperCase();
 	}
 	

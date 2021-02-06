@@ -103,7 +103,7 @@ public class VendingMachineCLI {
 						String itemChoice = menu.getItemChoice();
 						PurchasableItems chosenItem = inventorySelection.get(itemChoice);
 						//(varible)cart.addchosenItem (can see the items)
-						//if(//check for choiceitem.getprice) {
+						//if(chosenItem >= moneyHolder.balance) {
 						//if greater than balance to cannot but
 						//} else if(//check for choiceitem.getcount) {
 						//if out of stock, check for this
