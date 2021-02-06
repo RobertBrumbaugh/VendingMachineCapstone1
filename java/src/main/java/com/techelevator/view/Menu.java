@@ -41,6 +41,11 @@ public class Menu {
 		return choice;
 	}
 
+	public String getItemChoice() {
+		System.out.println("Please input an item code: ");
+		return in.nextLine().toUpperCase();
+	}
+	
 	private void displayMenuOptions(Object[] options) {
 		out.println();
 		for (int i = 0; i < options.length; i++) {

@@ -36,31 +36,31 @@ public class MoneyHolder {
 	//		balance = balance + amountWithdrawn;
 	//	}
 	
-		public String convertToCoins( int balance) {
+		public void convertToCoins(int balance) {
 			
-			int counter = balance;
+			//int counter = this.balance;
 			int quartersToReturn = 0;
 			int dimesToReturn = 0;
 			int nickelsToReturn = 0;
-			int quarterValue = 25;
-			int dimeValue = 10;
-			int nickelValue = 5;
+			double quarterValue = 0.25;
+			double dimeValue = 0.10;
+			double nickelValue = 0.05;
 	
 	
-			while (counter > 0) {
-				if (counter >= quarterValue) {
+			while (balance > 0) {
+				if (balance >= quarterValue) {
 					quartersToReturn ++;
-					counter = counter - quarterValue;
-				} else if (counter >= dimeValue) {
+					balance = (int) (balance - quarterValue);
+				} else if (balance >= dimeValue) {
 					dimesToReturn++;
-					counter = counter - dimeValue;
-				} else if (counter >= nickelValue) {
+					balance = (int) (balance - dimeValue);
+				} else if (balance >= nickelValue) {
 					nickelsToReturn++;
-					counter = counter - nickelValue;
+					balance = (int) (balance - nickelValue);
 				}
 			}
-			return quartersToReturn + " quarters " + dimesToReturn + " dimes " + nickelsToReturn
-					+ " nickels";
+			System.out.println(quartersToReturn + " quarters " + dimesToReturn + " dimes " + nickelsToReturn
+					+ " nickels");
 	
 		}
 	}

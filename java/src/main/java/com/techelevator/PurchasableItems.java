@@ -1,11 +1,13 @@
 package com.techelevator;
 
-public abstract class PurchasableItems {
+public class PurchasableItems {
 
 	private String name;
 	private String price;
 	private String type;
 	private String idNum;
+	private String sound;
+	private int count;
 
 	//TODO: Full Constructor needed
 	
@@ -16,7 +18,7 @@ public abstract class PurchasableItems {
 		this.price = price;
 		this.type = type;
 		this.idNum = idNum; 
-
+		//add count to classes
 	}
 
 	public String getName() {
@@ -39,7 +41,9 @@ public abstract class PurchasableItems {
 	 * public int getMaxNumberOfItems() { return maxNumberOfItems; }
 	 */
 
-	public abstract String getSound();
+	public String getSound() {
+		return sound;
+	};
 	
 	
 	@Override
@@ -47,6 +51,10 @@ public abstract class PurchasableItems {
 		String result;
 		result = this.idNum + ") " + this.name + " -- $" + this.price;
 		return result;
+	}
+	
+	public int decreaseCount() {
+		return this.count -= 1;
 	}
 
 }
