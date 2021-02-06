@@ -69,7 +69,7 @@ public class VendingMachineCLI {
 
 				for(PurchasableItems item : vendingItems)
 				{
-					System.out.println(item.toString());
+					System.out.println(item.toString() + " -- " + inventory.getStockAmount() + " Available");
 
 				}
 
@@ -98,21 +98,35 @@ public class VendingMachineCLI {
 						{
 							System.out.println(item.toString());
 						}
-						//while itemChoice ==null{
-						// check for valid entry} will surround try catch to get the expection.
 						String itemChoice = menu.getItemChoice();
-						PurchasableItems chosenItem = inventorySelection.get(itemChoice);
-						//(varible)cart.addchosenItem (can see the items)
-						//if(chosenItem >= moneyHolder.balance) {
-						//if greater than balance to cannot but
-						//} else if(//check for choiceitem.getcount) {
-						//if out of stock, check for this
-						//} else{
-						//check for decreasing stock(chosenitem.decreaseCount) update balance to charge money
-						//} print out the saying 
-						//a shopping cart variable to add items(ArrayList)
-						//for each loop vendingmaitems: itemOfTheCart{
-						// sout items}
+						
+						while (itemChoice == null){
+
+							PurchasableItems chosenItem = inventorySelection.get(itemChoice);
+							
+
+							List<PurchasableItems> shoppingCart  = new ArrayList<>();
+							
+							shoppingCart.add(chosenItem);
+							
+							if(chosenItem.getPriceString().Integer.parseInt() >= moneyHolder.balance) {
+//							
+//								// you get that item
+//
+//							}
+//							else if(chosenItem.getCount() == 0) {
+//								//sold out
+//
+//							} 
+//							else (chosenItem.decreaseCount){
+//								
+//								//if stock available - decrease count
+//
+//								}
+//
+//								for (Object vendingItems: shoppingCart){
+//									System.out.println(vendingItems);
+//								}
 
 
 					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {

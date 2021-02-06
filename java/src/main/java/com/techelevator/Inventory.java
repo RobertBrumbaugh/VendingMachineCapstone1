@@ -27,11 +27,11 @@ public class Inventory {
 	}
 	
 	
-//	public Inventory(PurchasableItems purchasableItems, String itemName) {
-//		this.purchasableItems = purchasableItems;
-//		this.itemName = itemName;
-//		this.stockAmount = stockAmount;
-//	}
+	public Inventory(PurchasableItems purchasableItems, String itemName, int stockAmount) {
+	//	this.purchasableItems = purchasableItems;
+		this.itemName = itemName;
+		this.stockAmount = stockAmount;
+	}
 
 	public List<PurchasableItems> getPurchasableItems() {
 		return purchasableItems;
@@ -61,7 +61,6 @@ public class Inventory {
 
 	}
 	
-	//TODO: Update as appropriate
 	public List<PurchasableItems> loadItems() throws FileNotFoundException {
 		
 		Scanner getFileToDisplay = new Scanner("vendingmachine.csv");
@@ -77,7 +76,7 @@ public class Inventory {
 				switch(itemAttributes[3]) {
 				case "Chip":
 					purchasableItems.add(new Chips(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3]));
-					break;//add count to this method after itemAttri.
+					break;
 				case "Candy":
 					purchasableItems.add(new Candy(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3]));
 					break;
@@ -98,18 +97,6 @@ public class Inventory {
 		
 		return purchasableItems;
 		
-	}
-//	public void vendingMachineSelection (String selection) {
-//		
-//		Set<String> snack = new HashSet<String>(Arrays.asList());
-//		
-//		if(snack.contains(selection)) {
-//			//return selection;
-//		} else {
-//			System.out.println("Invalid entry: Please enter a valid slot entry");
-//		}
-//		return;
-//	}
-	
+	}	
 	}
 

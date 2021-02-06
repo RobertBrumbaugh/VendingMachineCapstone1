@@ -36,13 +36,13 @@ public class Menu {
 			// eat the exception, an error message will be displayed below since choice will be null
 		}
 		if (choice == null) {
-			out.println(System.lineSeparator() + "*** " + userInput + " is not a valid option ***" + System.lineSeparator());
+			out.println(System.lineSeparator() + "*** " + userInput + " Is Not A Valid Option ***" + System.lineSeparator());
 		}
 		return choice;
 	}
 
 	public String getItemChoice() {
-		System.out.println("\nPlease input an item code: ");
+		System.out.println("\nPlease Input An Item Code: ");
 		return in.nextLine().toUpperCase();
 	}
 	
@@ -52,7 +52,7 @@ public class Menu {
 			int optionNum = i + 1;
 			out.println(optionNum + ") " + options[i]);
 		}
-		out.print(System.lineSeparator() + "Please choose an option >>> ");
+		out.print(System.lineSeparator() + "Please Choose An Option >>> ");
 		out.flush();
 		
 		

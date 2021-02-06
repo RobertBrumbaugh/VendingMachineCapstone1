@@ -18,7 +18,7 @@ public class PurchasableItems {
 		this.price = price;
 		this.type = type;
 		this.idNum = idNum; 
-		//add count to classes
+	//	this.count = count;
 	}
 
 	public String getName() {
@@ -37,13 +37,13 @@ public class PurchasableItems {
 		return type;
 	}
 
-	/*
-	 * public int getMaxNumberOfItems() { return maxNumberOfItems; }
-	 */
-
 	public String getSound() {
 		return sound;
-	};
+	}
+	
+	public int getCount() {
+		return count;
+	}
 	
 	
 	@Override
