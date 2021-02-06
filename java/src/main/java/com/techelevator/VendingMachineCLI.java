@@ -55,7 +55,7 @@ public class VendingMachineCLI {
 		try {
 			vendingItems = inventory.loadItems();
 		} catch (FileNotFoundException e) {
-			System.out.println("Unable to find inventory file");
+			System.out.println("Unable To Find Inventory File");
 		}
 
 
@@ -84,7 +84,7 @@ public class VendingMachineCLI {
 
 						//Ask user for money and update balance
 
-						System.out.println("Please Insert $: We accept $10, $5, $2, and $1 ");
+						System.out.println("Please Insert $: \n--We Accept $10, $5, $2, and $1--");
 						Scanner userInput = new Scanner(System.in);
 						String input = userInput.nextLine();
 						int amountDeposited = Integer.parseInt(input);
@@ -119,7 +119,7 @@ public class VendingMachineCLI {
 
 						int balance = 0;
 						moneyHolder.convertToCoins(balance);
-						System.out.println("Thank you, goodbye!");
+						System.out.println("Thank You, Goodbye!");
 						System.exit(1);
 
 					}
@@ -127,7 +127,7 @@ public class VendingMachineCLI {
 
 				// do purchase
 			} else if(choice.equals(MAIN_MENU_OPTION_EXIT)) {
-				System.out.println("Thank you, goodbye!");
+				System.out.println("Thank You, Goodbye!");
 				System.exit(1);
 
 			}

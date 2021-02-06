@@ -27,7 +27,7 @@ public class MoneyHolder {
 			if(validEntry.contains(amountDeposited)) {
 			balance = balance + amountDeposited;
 			} else {
-				System.out.println("Invalid entry: Please enter 1, 2, 5, or 10");
+				System.out.println("Invalid entry: Please Enter $1, $2, $5, or $10");
 			}
 			return;
 		}
@@ -59,8 +59,8 @@ public class MoneyHolder {
 					balance = (int) (balance - nickelValue);
 				}
 			}
-			System.out.println(quartersToReturn + " quarters " + dimesToReturn + " dimes " + nickelsToReturn
-					+ " nickels");
+			System.out.println(quartersToReturn + " Quarters " + dimesToReturn + " Dimes " + nickelsToReturn
+					+ " Nickels");
 	
 		}
 	}
