@@ -8,18 +8,19 @@ public class PurchasableItems {
 	private String idNum;
 	private String sound;
 	private int count;
+	
+	
+	public void setCount(int count) {
+		this.count = count;
+	}
 
-	//TODO: Full Constructor needed
-	
-	
-	
-	public PurchasableItems(String idNum, String name, String price, String type) {
+	public PurchasableItems(String idNum, String name, String price, String type, int stockAmt) {
 
 		this.name = name;
 		this.price = price;
 		this.type = type;
 		this.idNum = idNum; 
-	//	this.count = count;
+		this.count = stockAmt;
 	}
 
 	public String getName() {
@@ -47,6 +48,7 @@ public class PurchasableItems {
 	}
 	
 	
+	//TODO: ADD ADDITIONAL DATA LIKE COUNT TO toString()
 	@Override
 	public String toString() {
 		String result;

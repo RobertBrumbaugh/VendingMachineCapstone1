@@ -6,6 +6,8 @@ import java.util.Set;
 
 public class MoneyHolder {
 	
+		//TODO: Implement the change return in CLI
+	
 		// need a balance ==> converts to pennies
 		// needs to add money (deposit - user's current balance)
 		// + from user input 
@@ -36,6 +38,8 @@ public class MoneyHolder {
 	//		balance = balance + amountWithdrawn;
 	//	}
 	
+		
+		//TODO: Datatype issue with Balance, check and make it Double/BigDecimal
 		public void convertToCoins(int balance) {
 			
 			//int counter = this.balance;

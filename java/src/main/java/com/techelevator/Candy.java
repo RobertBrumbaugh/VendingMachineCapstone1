@@ -2,8 +2,9 @@ package com.techelevator;
 
 public class Candy extends PurchasableItems {
 
-	public Candy(String idNum, String name, String price, String type) {
-		super(idNum, name, price, type);
+	
+	public Candy(String idNum, String name, String price, String type, int stockAmt) {
+		super(idNum, name, price, type, stockAmt);
 	}
 	
 	@Override

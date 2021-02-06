@@ -47,15 +47,15 @@ public class VendingMachineCLI {
 	public void run() throws FileNotFoundException {
 
 		TreeMap<String, PurchasableItems> inventorySelection = new TreeMap<>();
-
-		List<PurchasableItems> purchasableItems = inventory.loadItems();
-
-		for(PurchasableItems vendingItem : purchasableItems) {
-			inventorySelection.put(vendingItem.getidNum(), vendingItem);
-		}
-
 		try {
-			vendingItems = inventory.loadItems();
+			List<PurchasableItems> purchasableItems = inventory.loadItems();
+	
+			for(PurchasableItems vendingItem : purchasableItems) {
+				inventorySelection.put(vendingItem.getidNum(), vendingItem);
+			}
+	
+			vendingItems = purchasableItems;
+
 		} catch (FileNotFoundException e) {
 			System.out.println("Unable To Find Inventory File");
 		}
@@ -71,7 +71,7 @@ public class VendingMachineCLI {
 
 				for(PurchasableItems item : vendingItems)
 				{
-					System.out.println(item.toString() + " -- " + inventory.getStockAmount() + " Available");
+					System.out.println(item.toString() + " -- " + item.getCount() + " Available");
 
 				}
 
@@ -95,6 +95,7 @@ public class VendingMachineCLI {
 
 					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
 
+						
 						//print out list of items again
 						for(PurchasableItems item : vendingItems)
 						{
@@ -105,12 +106,21 @@ public class VendingMachineCLI {
 						
 						PurchasableItems chosenItem = inventorySelection.get(itemChoice);
 
-							List<PurchasableItems> shoppingCart  = new ArrayList<>();
+						//TODO: Validate the entry before calling a concrete action
+						
+						if(chosenItem != null) {
 							
+							List<PurchasableItems> shoppingCart  = new ArrayList<>();
+
 							shoppingCart.add(chosenItem);
 							
 							if(chosenItem.equals(inventorySelection.get(itemChoice))) {
-								System.out.println("Valid Entry! ");//allItemInfo);
+								
+								if(Double.valueOf(chosenItem.getPriceString()) <= moneyHolder.balance) {
+									inventory.distributeProductAmount(itemChoice);
+								}else {
+									System.out.println("Insufficient Funds");
+								}
 								
 							}else{
 								if (itemChoice == null){
@@ -119,9 +129,13 @@ public class VendingMachineCLI {
 								}
 			
 							}
-							if(Double.valueOf(chosenItem.getPriceString()) >= moneyHolder.balance) {
-								
-							}
+					
+							
+							
+							
+						}else {
+							System.out.println("Please Make a Valid Selection.");
+						}
 							
 //							
 //								// you get that item

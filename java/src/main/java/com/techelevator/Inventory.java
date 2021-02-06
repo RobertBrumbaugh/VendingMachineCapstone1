@@ -17,6 +17,7 @@ public class Inventory {
 	// Needs to stock vending machine at startup 
 	// Sold out or not 
 	private List<PurchasableItems> purchasableItems = new ArrayList<>();
+	private static final int INITIAL_STOCK_AMOUNT = 5;
 	private static int stockAmount = 5;
 	private int dispenseAmount = 0;
 	private String itemName;
@@ -49,16 +50,45 @@ public class Inventory {
 		return itemName;
 	}
 
-	public void distributeProductAmount() {
+	//TODO: STRIP ALL DEAD CODE BEFORE RELEASE
+//	public void distributeProductAmount() {
+//		
+//		if (stockAmount > 0) {
+//			stockAmount--;
+//			dispenseAmount++;
+//			
+//		} else if (stockAmount == 0) {
+//			System.out.println("Sorry, item is SOLD OUT!");
+//		}
+//
+//	}
+	
+	public boolean distributeProductAmount(String itemSlot) {
 		
-		if (stockAmount > 0) {
-			stockAmount--;
-			dispenseAmount++;
-			
-		} else if (stockAmount == 0) {
+		boolean result = false;
+		PurchasableItems dispensedItem = null;
+		
+		for(PurchasableItems item : purchasableItems) {
+			if(item.getidNum().equals(itemSlot)) {
+				
+				if(item.getCount() > 0) {
+					item.decreaseCount();
+					dispensedItem = item;
+					result = true;
+				}
+				
+			}
+		}
+		
+		//TODO: REVIEW LOGIC HERE
+		if(result) {
+			System.out.println(dispensedItem.getSound() + ", Thank you!");
+		}else{
 			System.out.println("Sorry, item is SOLD OUT!");
 		}
 
+		return result;
+		
 	}
 	
 	public List<PurchasableItems> loadItems() throws FileNotFoundException {
@@ -75,16 +105,16 @@ public class Inventory {
 				
 				switch(itemAttributes[3]) {
 				case "Chip":
-					purchasableItems.add(new Chips(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3]));
+					purchasableItems.add(new Chips(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3], INITIAL_STOCK_AMOUNT ));
 					break;
 				case "Candy":
-					purchasableItems.add(new Candy(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3]));
+					purchasableItems.add(new Candy(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3], INITIAL_STOCK_AMOUNT));
 					break;
 				case "Drink":
-					purchasableItems.add(new Drinks(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3]));
+					purchasableItems.add(new Drinks(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3], INITIAL_STOCK_AMOUNT));
 					break;
 				case "Gum":
-					purchasableItems.add(new Gum(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3]));
+					purchasableItems.add(new Gum(itemAttributes[0],itemAttributes[1], itemAttributes[2], itemAttributes[3], INITIAL_STOCK_AMOUNT));
 					break;
 				default:
 					break;
