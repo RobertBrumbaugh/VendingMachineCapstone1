@@ -71,8 +71,7 @@ public class VendingMachineCLI {
 
 				for(PurchasableItems item : vendingItems)
 				{
-					System.out.println(item.toString() + " -- " + item.getCount() + " Available");
-
+					System.out.println(item.toString());
 				}
 
 
@@ -91,7 +90,7 @@ public class VendingMachineCLI {
 						String input = userInput.nextLine();
 						int amountDeposited = Integer.parseInt(input);
 						moneyHolder.depositedMoneyConvertedToPennies(amountDeposited);
-						System.out.println("Current Money Provided: $" + moneyHolder.balance);
+						System.out.println("Current Money Provided: $" + String.format("%10.2f", moneyHolder.balance));
 
 					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
 
@@ -118,6 +117,9 @@ public class VendingMachineCLI {
 								
 								if(Double.valueOf(chosenItem.getPriceString()) <= moneyHolder.balance) {
 									inventory.distributeProductAmount(itemChoice);
+									moneyHolder.balance = moneyHolder.balance - Double.valueOf(chosenItem.getPriceString());
+									System.out.println("Items To Vend: " + chosenItem.getName() + " $" + chosenItem.getPriceString());
+									System.out.println("Current Balance: $" + String.format("%10.2f", moneyHolder.balance));
 								}else {
 									System.out.println("Insufficient Funds");
 								}
@@ -125,43 +127,24 @@ public class VendingMachineCLI {
 							}else{
 								if (itemChoice == null){
 									
-									System.out.println("Invalid Entry: Please pick a valid selection");
+									System.out.println("Invalid Entry: Please Make A Valid Selection!");
 								}
 			
 							}
-					
-							
 							
 							
 						}else {
-							System.out.println("Please Make a Valid Selection.");
+							System.out.println("Please Make A Valid Selection!");
 						}
 							
-//							
-//								// you get that item
-//
-//							}
-//							else if(chosenItem.getCount() == 0) {
-//								//sold out
-//
-//							} 
-//							else (chosenItem.decreaseCount){
-//								
-//								//if stock available - decrease count
-//
-//								}
-//
-//								for (Object vendingItems: shoppingCart){
-//									System.out.println(vendingItems);
-//								}
-
 
 					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
 
-						int balance = 0;
-						moneyHolder.convertToCoins(balance);
+						moneyHolder.convertToCoins(moneyHolder.balance * 100);
+						moneyHolder.balance = 0;
+						System.out.println("Current Balance: $" + String.format("%10.2f", moneyHolder.balance));
 						System.out.println("Thank You, Goodbye!");
-						System.exit(1);
+						break;
 
 					}
 				}

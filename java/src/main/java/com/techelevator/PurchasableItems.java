@@ -52,7 +52,7 @@ public class PurchasableItems {
 	@Override
 	public String toString() {
 		String result;
-		result = this.idNum + ") " + this.name + " -- $" + this.price;
+		result = this.idNum + ") " + this.name + " -- $" + this.price + " -- " + this.count + " Available";
 		return result;
 	}
 	

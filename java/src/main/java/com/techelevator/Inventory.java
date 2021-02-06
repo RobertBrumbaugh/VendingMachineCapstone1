@@ -50,18 +50,6 @@ public class Inventory {
 		return itemName;
 	}
 
-	//TODO: STRIP ALL DEAD CODE BEFORE RELEASE
-//	public void distributeProductAmount() {
-//		
-//		if (stockAmount > 0) {
-//			stockAmount--;
-//			dispenseAmount++;
-//			
-//		} else if (stockAmount == 0) {
-//			System.out.println("Sorry, item is SOLD OUT!");
-//		}
-//
-//	}
 	
 	public boolean distributeProductAmount(String itemSlot) {
 		
@@ -82,9 +70,9 @@ public class Inventory {
 		
 		//TODO: REVIEW LOGIC HERE
 		if(result) {
-			System.out.println(dispensedItem.getSound() + ", Thank you!");
+			System.out.println(dispensedItem.getSound() + ", Thank you! \n" );
 		}else{
-			System.out.println("Sorry, item is SOLD OUT!");
+			System.out.println("Sorry, item is SOLD OUT! \n");
 		}
 
 		return result;
