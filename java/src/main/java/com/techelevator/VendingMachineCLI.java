@@ -37,6 +37,8 @@ public class VendingMachineCLI {
 	private Inventory inventory = new Inventory();
 
 	private MoneyHolder moneyHolder = new MoneyHolder();
+	
+	//private PurchasableItems allItemInfo = new PurchasableItems(null, null, null, null);
 
 	public VendingMachineCLI() {
 
@@ -98,18 +100,29 @@ public class VendingMachineCLI {
 						{
 							System.out.println(item.toString());
 						}
+						
 						String itemChoice = menu.getItemChoice();
 						
-						while (itemChoice == null){
-
-							PurchasableItems chosenItem = inventorySelection.get(itemChoice);
-							
+						PurchasableItems chosenItem = inventorySelection.get(itemChoice);
 
 							List<PurchasableItems> shoppingCart  = new ArrayList<>();
 							
 							shoppingCart.add(chosenItem);
 							
-							if(chosenItem.getPriceString().Integer.parseInt() >= moneyHolder.balance) {
+							if(chosenItem.equals(inventorySelection.get(itemChoice))) {
+								System.out.println("Valid Entry! ");//allItemInfo);
+								
+							}else{
+								if (itemChoice == null){
+									
+									System.out.println("Invalid Entry: Please pick a valid selection");
+								}
+			
+							}
+							if(Double.valueOf(chosenItem.getPriceString()) >= moneyHolder.balance) {
+								
+							}
+							
 //							
 //								// you get that item
 //
@@ -146,7 +159,7 @@ public class VendingMachineCLI {
 
 			}
 		}
-	}
+}
 
 
 	public static void main(String[] args) {
@@ -155,8 +168,7 @@ public class VendingMachineCLI {
 		try {
 			cli.run();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 
 
