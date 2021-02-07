@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,6 +10,7 @@ import java.util.TreeMap;
 import com.techelevator.MoneyHolder;
 import com.techelevator.PurchasableItems;
 import com.techelevator.view.Menu;
+import com.techelevator.FileWriter;
 
 public class VendingMachineCLI {
 
@@ -38,13 +40,18 @@ public class VendingMachineCLI {
 
 	private MoneyHolder moneyHolder = new MoneyHolder();
 	
-	//private PurchasableItems allItemInfo = new PurchasableItems(null, null, null, null);
 
 	public VendingMachineCLI() {
 
 	}
 
 	public void run() throws FileNotFoundException {
+		
+		
+		
+		FileWriter fileWriter = new FileWriter();
+		
+		
 
 		TreeMap<String, PurchasableItems> inventorySelection = new TreeMap<>();
 		try {
@@ -76,6 +83,9 @@ public class VendingMachineCLI {
 
 
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
+				
+				
+				
 
 
 				while(true) {
@@ -90,12 +100,20 @@ public class VendingMachineCLI {
 						String input = userInput.nextLine();
 						int amountDeposited = Integer.parseInt(input);
 						moneyHolder.depositedMoneyConvertedToPennies(amountDeposited);
-						System.out.println("Current Money Provided: $" + String.format("%10.2f", moneyHolder.balance));
+						System.out.println("Current Money Provided: $" + String.format("%.2f", moneyHolder.balance));
+
+						try {
+							fileWriter.logWriter("Feed Money: " + " $" + amountDeposited + " $" + String.format("%.2f", moneyHolder.balance) +"\n");
+						} catch (IOException e) {
+							System.out.println("Invalid Log Method!");
+						}
+							
+						
 
 					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
 
 						
-						//print out list of items again
+						
 						for(PurchasableItems item : vendingItems)
 						{
 							System.out.println(item.toString());
@@ -105,7 +123,6 @@ public class VendingMachineCLI {
 						
 						PurchasableItems chosenItem = inventorySelection.get(itemChoice);
 
-						//TODO: Validate the entry before calling a concrete action
 						
 						if(chosenItem != null) {
 							
@@ -117,11 +134,24 @@ public class VendingMachineCLI {
 								
 								if(Double.valueOf(chosenItem.getPriceString()) <= moneyHolder.balance) {
 									inventory.distributeProductAmount(itemChoice);
+									
+									Double newBalance = moneyHolder.balance;
 									moneyHolder.balance = moneyHolder.balance - Double.valueOf(chosenItem.getPriceString());
+									
+									
+									
 									System.out.println("Items To Vend: " + chosenItem.getName() + " $" + chosenItem.getPriceString());
-									System.out.println("Current Balance: $" + String.format("%10.2f", moneyHolder.balance));
+									System.out.println("Current Balance: $" + String.format("%.2f", moneyHolder.balance));
+									
+									try {
+										fileWriter.logWriter(chosenItem.getName() + " " + chosenItem.getidNum() +
+												" $" +  String.format("%.2f", newBalance)  + " $" + String.format("%.2f", moneyHolder.balance) +"\n");
+									} catch (IOException e) {
+										System.out.println("Invalid Log Method!");
+									}
+									
 								}else {
-									System.out.println("Insufficient Funds");
+									System.out.println("Insufficient Funds!");
 								}
 								
 							}else{
@@ -141,9 +171,18 @@ public class VendingMachineCLI {
 					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
 
 						moneyHolder.convertToCoins(moneyHolder.balance * 100);
+						double newBalance = moneyHolder.balance;
 						moneyHolder.balance = 0;
-						System.out.println("Current Balance: $" + String.format("%10.2f", moneyHolder.balance));
+						System.out.println("Current Balance: $" + String.format("%.2f", moneyHolder.balance));
 						System.out.println("Thank You, Goodbye!");
+						
+						try {
+							fileWriter.logWriter("Give Change: " + " $" + String.format("%.2f", newBalance) + " $" + String.format("%.2f", moneyHolder.balance) +"\n");
+						} catch (IOException e) {
+							System.out.println("Invalid Log Method!");
+						}
+						// message!! "Give Change: " + " $" + amtBalance + mhBalance;
+						
 						break;
 
 					}

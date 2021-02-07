@@ -39,7 +39,9 @@
 		//	public void withdrawMoneyConvertedToPennies ( int amountWithdrawn) {
 		//		balance = balance + amountWithdrawn;
 		//	}
-	
+		
+		
+		//TODO: check if this actually does anything
 		public void subtractCostOfItemsFromBalance(int amountWithdrawn) {
 			balance = balance-amountWithdrawn;
 		}
