@@ -27,17 +27,17 @@ public class Inventory {
 		
 	}
 	
-	
-	public Inventory(PurchasableItems purchasableItems, String itemName, int stockAmount) {
-	//	this.purchasableItems = purchasableItems;
-		this.itemName = itemName;
-		this.stockAmount = stockAmount;
-	}
+	//Potential Dead Code?
+//	public Inventory(PurchasableItems purchasableItems, String itemName, int stockAmount) {
+//		this.itemName = itemName;
+//		this.stockAmount = stockAmount;
+//	}
 
 	public List<PurchasableItems> getPurchasableItems() {
 		return purchasableItems;
 	}
 
+		//Not sure if needed after INITAL STOCK AMOUNT
 	public int getStockAmount() {
 		return stockAmount;
 	}
@@ -62,20 +62,30 @@ public class Inventory {
 				if(item.getCount() > 0) {
 					item.decreaseCount();
 					dispensedItem = item;
-					result = true;
+					result = true; 
 				}
 				
 			}
-		}
-		
-		//TODO: REVIEW LOGIC HERE
-		if(result) {
-			System.out.println(dispensedItem.getSound() + ", Thank you! \n" );
-		}else{
-			System.out.println("Sorry, item is SOLD OUT! \n");
-		}
-
+		}	
+//		// LOGIC HERE Checks out
+//		if(result) {
+//			System.out.println(dispensedItem.getSound() + ", Thank you! \n" );
+//		}else{
+//			System.out.println("Sorry, item is SOLD OUT! \n");
+//		}
+		System.out.println(getMessage(result, dispensedItem));
 		return result;
+		
+	}
+	
+	//for testing
+	public String getMessage(boolean result, PurchasableItems item) {
+		
+		if (result = true ) {
+			return item.getSound() + ", Thank you! \n" ;
+		} else {
+			return "Sorry, item is SOLD OUT! \n";
+		}
 		
 	}
 	
@@ -116,5 +126,6 @@ public class Inventory {
 		return purchasableItems;
 		
 	}	
+	
 	}
 

@@ -6,6 +6,7 @@ public class Drinks extends PurchasableItems {
 		super(idNum, name, price, type, stockAmt);
 	}
 	
+	
 	@Override
 	public String getSound() {
 		return "Gulp Gulp, Yum!";

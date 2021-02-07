@@ -22,32 +22,6 @@ public class FileWriter {
 				printLogFile.append(dateTime.format(newTimeStamp) + " " + message);
 			}
 		}
-
-//	public static void main(String[] args) {
-//		try {
-//			File fileWriter = new File("log.txt");
-//			if (fileWriter.createNewFile()){
-//				System.out.println("File Created:" + fileWriter.getName());
-//			} else {
-//				System.out.println("File Already Exists!");
-//			}
-//		}catch(IOException ex) {
-//			System.out.println("An Error Occured.");
-//		}
-//	}
-//}
-//
-//	
-//	try {
-//		FileWriter fileWriter = new FileWriter("log.txt");
-//		fileWriter.write("Insert Info Here");
-//		fileWriter.close();
-//		System.out.println("Write To Log Successful!");
-//	}catch 9IO Exception ex){
-//		System.out.println("Could Not Write To File");
-//	}
-//}
-//}
 }
 
 

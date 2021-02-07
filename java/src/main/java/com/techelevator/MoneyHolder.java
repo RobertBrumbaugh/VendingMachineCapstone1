@@ -6,18 +6,8 @@
 	
 	public class MoneyHolder {
 	
-		//TODO: Implement the change return in CLI
-	
-		// need a balance ==> converts to pennies
-		// needs to add money (deposit - user's current balance)
-		// + from user input 
-		// needs to withdraw money
-		// return change as pennies
-		// convert pennies to quarters, dimes, nickels
-		// update to 0 after each transaction
+		
 		public double balance;
-	
-	
 	
 	
 		public MoneyHolder() {
@@ -36,18 +26,12 @@
 			return;
 		}
 	
-		//	public void withdrawMoneyConvertedToPennies ( int amountWithdrawn) {
-		//		balance = balance + amountWithdrawn;
-		//	}
+		//For Testing
+			public double getBalance () {
+				return balance;
+			}
 		
-		
-		//TODO: check if this actually does anything
-		public void subtractCostOfItemsFromBalance(int amountWithdrawn) {
-			balance = balance-amountWithdrawn;
-		}
 	
-	
-		//TODO: Datatype issue with Balance, check and make it Double/BigDecimal
 		public void convertToCoins(double balance) {
 			
 			

@@ -27,9 +27,8 @@ public class VendingMachineCLI {
 	private static final String[] PURCHASE_MENU_OPTIONS = {PURCHASE_MENU_OPTION_FEEDING_MONEY, PURCHASE_MENU_OPTION_SELECT_PRODUCT, 
 			PURCHASE_MENU_OPTION_FINISH_TRANSACTION};
 
+	
 	private Menu menu;
-
-
 	private List<PurchasableItems> vendingItems = new ArrayList<>();
 
 	public VendingMachineCLI(Menu menu) {
@@ -37,23 +36,19 @@ public class VendingMachineCLI {
 	}
 
 	private Inventory inventory = new Inventory();
-
 	private MoneyHolder moneyHolder = new MoneyHolder();
 	
-
 	public VendingMachineCLI() {
 
 	}
 
+	
 	public void run() throws FileNotFoundException {
 		
-		
-		
 		FileWriter fileWriter = new FileWriter();
-		
-		
 
 		TreeMap<String, PurchasableItems> inventorySelection = new TreeMap<>();
+		
 		try {
 			List<PurchasableItems> purchasableItems = inventory.loadItems();
 	
@@ -66,13 +61,14 @@ public class VendingMachineCLI {
 		} catch (FileNotFoundException e) {
 			System.out.println("Unable To Find Inventory File");
 		}
-
-
+		
+		System.out.println("-----| Welcome To Vendo-Matic's Premium Products |-----");
+		
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
-				System.out.println("-----| Vendo-Matic's Premium Products |-----");
+				System.out.println("\n-----| Vendo-Matic's Premium Products |-----\n");
 
 				//Implement output of items from inventory
 
@@ -83,9 +79,6 @@ public class VendingMachineCLI {
 
 
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
-				
-				
-				
 
 
 				while(true) {
@@ -151,7 +144,7 @@ public class VendingMachineCLI {
 									}
 									
 								}else {
-									System.out.println("Insufficient Funds!");
+									System.out.println("Insufficient Funds!"); 
 								}
 								
 							}else{
@@ -181,14 +174,14 @@ public class VendingMachineCLI {
 						} catch (IOException e) {
 							System.out.println("Invalid Log Method!");
 						}
-						// message!! "Give Change: " + " $" + amtBalance + mhBalance;
+						
 						
 						break;
 
 					}
 				}
 
-				// do purchase
+				// do purchase/leave
 			} else if(choice.equals(MAIN_MENU_OPTION_EXIT)) {
 				System.out.println("Thank You, Goodbye!");
 				System.exit(1);
@@ -210,7 +203,21 @@ public class VendingMachineCLI {
 
 	}
 
-
+	//for testing
+	public String checkBalance(PurchasableItems chosenItem, MoneyHolder moneyHolder) {
+		
+		
+		
+		if(Double.valueOf(chosenItem.getPriceString()) <= moneyHolder.balance) {
+			
+			moneyHolder.balance = moneyHolder.balance - Double.valueOf(chosenItem.getPriceString());	
+			
+			return "Current Balance: $" + String.format("%.2f", moneyHolder.balance);	
+			
+		}else {
+			return "Insufficient Funds!";
+		}
+	}
 }
 
 

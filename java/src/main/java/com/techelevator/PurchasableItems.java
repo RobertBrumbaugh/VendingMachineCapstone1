@@ -48,7 +48,7 @@ public class PurchasableItems {
 	}
 	
 	
-	//TODO: ADD ADDITIONAL DATA LIKE COUNT TO toString()
+	// Method needed to return proper string message
 	@Override
 	public String toString() {
 		String result;
